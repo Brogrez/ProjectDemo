@@ -4,12 +4,15 @@ const vaciarCarritoBtn = document.querySelector("#vaciar-carrito")
 const listaProductos = document.querySelector("#lista-cursos")
 let carrito = []
 const listaCarrito  = document.querySelector("#lista-carrito tbody")
+const carritoContenedor = document.querySelector("#lista-carrito")
 
 // listeners 
 cargaListeners()
 function cargaListeners(){
     vaciarCarritoBtn.addEventListener("click", vaciarCarrito)
     listaProductos.addEventListener("click", obtenerElemento)
+    carritoContenedor.addEventListener("click", eliminarCurso)
+
     
 }
 
@@ -89,8 +92,6 @@ function plasmarCarrito(carrito){
 
     vaciarCarrito()
 
-
-
     carrito.forEach(e => {
         let elementTr = document.createElement("tr")
 
@@ -103,12 +104,33 @@ function plasmarCarrito(carrito){
         `
         listaCarrito.appendChild(elementTr)
 
+        // elementTr.addEventListener("click", (e) => {
 
+        //     if(e.target.querySelector("a").getAttribute("data-id")){
+        //         carrito = carrito.filter(
+
+        //         )
+        //     }
+        // })
     });
-
     // console.log(carrito)
-    
 }
+function eliminarCurso(evento){
+    if(evento.target.classList.contains("borrar-curso")){
+        const dataId = evento.target.getAttribute("data-id")
+        console.log(carrito, "inicio")
+        carrito = carrito.filter(curso => curso.id !== dataId )
+        console.log(carrito, "final")
+
+        plasmarCarrito(carrito)
+
+        console.log(dataId)
+    }
+
+}
+
+
+
 
 function vaciarCarrito(){
 
