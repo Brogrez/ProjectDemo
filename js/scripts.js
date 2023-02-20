@@ -52,3 +52,16 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+// // Función para agregar un producto al carrito
+// function addToCart(name, price) {
+//   for (let i in cart) {
+//     if (cart[i].name === name) {
+//       cart[i].qty++;
+//       return;
+//     }
+//   }
+//   let item = new Item(name, price);
+//   item.qty = 1;
+//   cart.push(item);
+// }
