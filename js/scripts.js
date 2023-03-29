@@ -52,8 +52,6 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-
-
 // // Función para agregar un producto al carrito
 // function addToCart(name, price) {
 //   for (let i in cart) {
